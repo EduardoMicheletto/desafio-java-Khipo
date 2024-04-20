@@ -1,0 +1,33 @@
+spring:
+
+  datasource:
+    #    jdbc:mysql://localhost:63972/controle para acessar docker
+    #    jdbc:mysql://localhost:3306/controle para acessar localhost
+    url: jdbc:mysql://localhost:3306/controle
+#    admin localhost
+#    root docker
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+
+#  sql:
+#    init:
+#      data-locations: data.sql
+#      mode: always
+
+#swagger
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
+
