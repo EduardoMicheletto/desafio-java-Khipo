@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "4d0499bc-8178-4b79-92f2-1b0bc16ec5e7",
+		"name": "API KHIPO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2117069"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"asd\",\r\n    \"email\": \"asd@asd.com\",\r\n    \"login\": \"asd\",\r\n    \"senha\": \"asd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/login/registrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"asd\",\r\n    \"password\": \"asd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "produto",
+			"item": [
+				{
+					"name": "produto paginado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM3MzgwMDAsImV4cCI6MTcxMzczOTQ0MH0.Wtm3mAESM9v4fgLsATJK8b5tvdmdtMXK67jn58-F18A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/v1/produto?page=0&size=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"produto"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criar produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzYzNDUsImV4cCI6MTcxMzgzNzc4NX0.mMCin61vyCXOzZusKqnHq2byscxx_HzCXRY-qOO4e6E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"produto Teste\",\r\n  \"valor\": 10.0,\r\n  \"idCategoria\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterar produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM3MzgwMDAsImV4cCI6MTcxMzczOTQ0MH0.Wtm3mAESM9v4fgLsATJK8b5tvdmdtMXK67jn58-F18A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"produto Teste\",\r\n    \"valor\": 70.0,\r\n    \"idCategoria\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/produto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzYzNDUsImV4cCI6MTcxMzgzNzc4NX0.mMCin61vyCXOzZusKqnHq2byscxx_HzCXRY-qOO4e6E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtosIdQuantidade\": {\r\n    \"1\": 3,\r\n    \"2\": 3,\r\n    \"3\": 3\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/produto/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pedido",
+			"item": [
+				{
+					"name": "getPedido by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzQ5MjksImV4cCI6MTcxMzgzNjM2OX0.YrCLIATwTAl5ZznhUVdX3rqN841piE2sV5b1YMVWI6s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/v1/pedido/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"pedido",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPedido paginado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzUyNTEsImV4cCI6MTcxMzgzNjY5MX0.KssRfQRtkmWDJzEwJVaZk8Lgccu7kK0yQ0PjWXBfJmQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/v1/pedido?page=0&size=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"pedido"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzYzNDUsImV4cCI6MTcxMzgzNzc4NX0.mMCin61vyCXOzZusKqnHq2byscxx_HzCXRY-qOO4e6E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtosIdQuantidade\": {\r\n    \"1\": 3,\r\n    \"2\": 3,\r\n    \"3\": 3\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/pedido",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2QiLCJpYXQiOjE3MTM4MzYzNDUsImV4cCI6MTcxMzgzNzc4NX0.mMCin61vyCXOzZusKqnHq2byscxx_HzCXRY-qOO4e6E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtosIdQuantidade\": {\r\n    \"1\": 3,\r\n    \"2\": 3,\r\n    \"3\": 3\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/pedido/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"pedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

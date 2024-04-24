@@ -1,6 +1,5 @@
-package com.api.testeKhipo.entity;
+package com.api.testeKhipo.model.entity;
 
-import com.api.testeKhipo.dto.ProdutoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,14 +25,17 @@ public class PedidoProduto {
     @JoinColumn(name = "id_produto")
     private Produto produto;
 
+    @Column(name = "quantidade")
+    private int quantidade;
 
-    public static PedidoProduto buildDTO(ProdutoDTO produto, Pedido pedido) {
-        if (produto == null) {
+    public static PedidoProduto build(Long idPedido, Long idProduto, Long quantidade) {
+        if (idProduto == null || quantidade == null || idPedido == null) {
             return null;
         }
         return PedidoProduto.builder()
-                .pedido(pedido)
-                .produto(Produto.buildProduto(produto))
+                .pedido(Pedido.builder().id(idPedido).build())
+                .produto(Produto.builder().id(idProduto).build())
+                .quantidade(quantidade.intValue())
                 .build();
     }
 

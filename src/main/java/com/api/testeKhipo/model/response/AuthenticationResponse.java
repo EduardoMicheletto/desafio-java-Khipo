@@ -1,4 +1,4 @@
-package com.api.testeKhipo.dto;
+package com.api.testeKhipo.model.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

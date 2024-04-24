@@ -1,10 +1,9 @@
-package com.api.testeKhipo.dto;
+package com.api.testeKhipo.model.response;
 
 
-import com.api.testeKhipo.entity.Produto;
-import com.api.testeKhipo.entity.enums.CategoriaProduto;
+import com.api.testeKhipo.model.entity.Produto;
+import com.api.testeKhipo.model.entity.enums.CategoriaProduto;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @AllArgsConstructor @Builder @Data @NoArgsConstructor
-public class ProdutoDTO {
+public class ProdutoResponse {
 
     private Long id;
 
@@ -21,20 +20,20 @@ public class ProdutoDTO {
     private String nome;
 
     @NotBlank
-    private BigDecimal preco;
+    private BigDecimal valor;
 
     @NotBlank
     private CategoriaProduto categoria;
 
 
-    public static ProdutoDTO buildDTO(Produto produto) {
+    public static ProdutoResponse buildResponse(Produto produto) {
         if (produto == null) {
             return null;
         }
-        return ProdutoDTO.builder()
+        return ProdutoResponse.builder()
                 .id(produto.getId())
                 .nome(produto.getNome())
-                .preco(produto.getPreco())
+                .valor(produto.getValor())
                 .categoria(produto.getCategoria())
                 .build();
     }

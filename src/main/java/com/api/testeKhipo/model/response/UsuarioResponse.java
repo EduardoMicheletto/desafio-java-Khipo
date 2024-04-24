@@ -1,4 +1,4 @@
-package com.api.testeKhipo.dto;
+package com.api.testeKhipo.model.response;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -7,9 +7,8 @@ import lombok.Data;
 
 @Data @Builder
 @AllArgsConstructor
-public class UsuarioDTO {
+public class UsuarioResponse {
     @NotBlank
     private Long id;
     private String nome;
-
 }

@@ -1,11 +1,11 @@
 package com.api.testeKhipo.service;
 
 import com.api.testeKhipo.config.JwtService;
-import com.api.testeKhipo.dto.AuthenticationResponse;
-import com.api.testeKhipo.dto.LoginDTO;
-import com.api.testeKhipo.dto.ResgistroDTO;
-import com.api.testeKhipo.entity.Usuario;
-import com.api.testeKhipo.entity.enums.Acessos;
+import com.api.testeKhipo.model.response.AuthenticationResponse;
+import com.api.testeKhipo.model.requests.LoginRequest;
+import com.api.testeKhipo.model.requests.ResgistroRequest;
+import com.api.testeKhipo.model.entity.Usuario;
+import com.api.testeKhipo.model.entity.enums.Acessos;
 import com.api.testeKhipo.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,16 +22,16 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse registro(ResgistroDTO registro) {
-        if(usuarioRepository.findByLogin(registro.getLogin()).isPresent()){
+    public AuthenticationResponse registro(ResgistroRequest registro) {
+        if(usuarioRepository.findByLogin(registro.login()).isPresent()){
             return AuthenticationResponse.builder().error("Nome de usuário já em uso.").build();
         }
 
         var usuario = Usuario.builder()
-                .nome(registro.getNome())
-                .login(registro.getLogin())
-                .email(registro.getEmail())
-                .password(passwordEncoder.encode(registro.getSenha()))
+                .nome(registro.nome())
+                .login(registro.login())
+                .email(registro.email())
+                .password(passwordEncoder.encode(registro.senha()))
                 .acessos(Acessos.USER)
                 .build();
 
@@ -40,15 +40,15 @@ public class AuthenticationService {
         return extrairAuthenticationResponse(usuario);
     }
 
-    public AuthenticationResponse login(LoginDTO request) {
+    public AuthenticationResponse login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getLogin(),
-                        request.getSenha()
+                        request.login(),
+                        request.password()
                 )
         );
 
-        var usuario = usuarioRepository.findByLogin(request.getLogin())
+        var usuario = usuarioRepository.findByLogin(request.login())
                 .orElseThrow();
 
         return extrairAuthenticationResponse(usuario);

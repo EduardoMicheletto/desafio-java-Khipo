@@ -1,6 +1,6 @@
-package com.api.testeKhipo.entity;
+package com.api.testeKhipo.model.entity;
 
-import com.api.testeKhipo.entity.enums.Acessos;
+import com.api.testeKhipo.model.entity.enums.Acessos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

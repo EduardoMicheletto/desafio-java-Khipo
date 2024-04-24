@@ -1,8 +1,8 @@
 package com.api.testeKhipo.controller;
 
 import com.api.testeKhipo.config.JwtService;
-import com.api.testeKhipo.dto.LoginDTO;
-import com.api.testeKhipo.dto.ResgistroDTO;
+import com.api.testeKhipo.model.requests.LoginRequest;
+import com.api.testeKhipo.model.requests.ResgistroRequest;
 import com.api.testeKhipo.service.AuthenticationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,14 +34,14 @@ public class LoginControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper mapper;
-    private ResgistroDTO resgistroRequest;
-    private LoginDTO loginDTO;
+    private ResgistroRequest resgistroRequest;
+    private LoginRequest loginRequest;
 
 
     @BeforeEach
     public void init() {
-        resgistroRequest = new ResgistroDTO("test","test@test.com","test","test");
-        loginDTO = new LoginDTO("teste","teste");
+        resgistroRequest = new ResgistroRequest("test","test@test.com","test","test");
+        loginRequest = new LoginRequest("teste","teste");
     }
 
 
@@ -59,7 +59,7 @@ public class LoginControllerTest {
 
         ResultActions response = mockMvc.perform(post("/api/v1/login")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(loginDTO)));
+                .content(mapper.writeValueAsString(loginRequest)));
 
         response.andExpect(MockMvcResultMatchers.status().isOk());
     }
